@@ -1,3 +1,5 @@
+using System.Xml.Xsl.Runtime;
+using System.Text.RegularExpressions;
 using System.ComponentModel;
 using System;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +18,14 @@ namespace squarerootWebApp.Controllers
         public IActionResult Squareroot(string FirstNumber, string SecondNumber)
         {
             double NumberOne = Math.Sqrt(double.Parse(FirstNumber));
-            double numberTwo = Math.Sqrt(double.Parse(SecondNumber));
+            double NumberTwo = Math.Sqrt(double.Parse(SecondNumber));
             
+
+
             ViewBag.First =  double.Parse(FirstNumber);
             ViewBag.Second = double.Parse(SecondNumber);                   
-            ViewBag.One = NumberOne;
-            ViewBag.Two = NumberTwo;    
+            //ViewBag.One = NumberOne;
+            //ViewBag.Two = NumberTwo;    
             
 
         /*    if (NumberOne < 0)

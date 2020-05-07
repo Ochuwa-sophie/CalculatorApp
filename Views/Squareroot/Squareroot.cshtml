@@ -10,11 +10,12 @@
 <form asp-controller="Squareroot" asp-action="Sqrt" methods="POST">
     <input type="number" placeholder="First number" name = "FirstNumber"/>
     <input type="number" placeholder="Second number" name = "SecondNumber"/>
+    
 
     if (@ViewBag.Math.sqrt(NumberOne) > @ViewBag.Math.sqrt(NumberTwo))
         {
            <div>
-                <p>  The number @NumberOne with square root of @ViewBag.NumberOne has a higher square root than the number @NumberTwo with square root @ViewBag.NumberTwo </p>
+                <p>  The number @NumberOne with square root of @ViewBag.One has a higher square root than the number @NumberTwo with square root @ViewBag.NumberTwo </p>
             </div>
         }
     if (@ViewBag.Math.sqrt(NumberOne) < @ViewBag.Math.sqrt(NumberOne))
