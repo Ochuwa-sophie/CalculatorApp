@@ -20546,8 +20546,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Repos\\squarerootWebApp\\Views\\squareroot\\Squareroot.cshtml",
-      "TargetPath": "Views\\squareroot\\Squareroot.cshtml",
+      "FilePath": "c:\\Users\\HP\\Repos\\squarerootWebApp\\Views\\Squareroot\\Squareroot.cshtml",
+      "TargetPath": "Views\\Squareroot\\Squareroot.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,42 +1,73 @@
 @{
     ViewData["Title"] = "Squareroot Page";
+    var FirstNumber = ViewBag.FirstNumber;
+    var SecondNumber = ViewBag.SecondNumber;
+    var SqrtFirstNumber = ViewBag.SqrtFirstNumber;
+    var SqrtSecondNumber = ViewBag.SqrtSecondNumber;
+    
+    
 }
 @{
 <div class="text-center">
     <h1 class="display-4">A Square root calculator</h1>
 </div>
- 
+ <div>
+    <p> Enter your number </p>
+ </div>
     <div>
-<form asp-controller="Squareroot" asp-action="Sqrt" methods="POST">
-    <input type="number" placeholder="First number" name = "FirstNumber"/>
-    <input type="number" placeholder="Second number" name = "SecondNumber"/>
-    
+<form asp-controller="Squareroot" asp-action="GetSqrt" methods="POST">
+    <input type="number" placeholder="First number" asp-for="FirstNumber">
+    <input type="number" placeholder="Second number" asp-for = "SecondNumber"/>
+   
+ try
+        {
 
-    if (@ViewBag.Math.sqrt(NumberOne) > @ViewBag.Math.sqrt(NumberTwo))
+    if (SqrtFirstNumber > SecondNumber)
         {
-           <div>
-                <p>  The number @NumberOne with square root of @ViewBag.One has a higher square root than the number @NumberTwo with square root @ViewBag.NumberTwo </p>
+           <div class = "text-center">
+                <p>  The number @ViewBag.FirstNumber with square root of @ViewBag.SqrtFirstNumber has a higher square root than the number @ViewBag.SecondNumber with square root @ViewBag.SqrtSecondNumber </p>
             </div>
         }
-    if (@ViewBag.Math.sqrt(NumberOne) < @ViewBag.Math.sqrt(NumberOne))
+    else if(SqrtSecondNumber > SqrtFirstNumber)
         {
            <div>
-                <p>  The number @NumberTwo with square root of @ViewBag.NumberTwo has a higher square root than the number @NumberTwo with square root @ViewBag.NumberTwo </p>
+                <p>  The number @ViewBag.SecondNumber with square root of @ViewBag.SqrtSecondNumber has a higher square root than the number @ViewBag.FirstNumber with square root @ViewBag.SqrtFirstNumber </p>
             </div>
         }
-    if(@ViewBag.Math.sqrt(NumberOne) = @ViewBag.Math.sqrt(NumberTwo))
+    else if(SqrtFirstNumber = SqrtSecondNumber)
         {
             <div>
-                <p>  Enter another set of number, user. </p>
-                 </div>
+                <p>  Please input different numbers, your numbers have the same square root. </p>
+               
+            </div>
+                 
         }
-    else ()
+    else if(FirstNumber < 0 && SecondNumber < 0)
         {
-            break;
-        }   
+            throw new ArgumentException(
+                //InvalidCastException
+                "Must provide a duration greater than 0",
+                "duration");
+        }
+       
+        }
+catch (InvalidOperationException iox)
+        {
+            throw new Exception("Some problem with the calculator occured", iox);
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        finally
+        {
+   <div>
+                <p>  Please input positive numbers only! </p>
+               
+    </div>
+        }
             
-
-    <button type="submit">Submit</button>  
+  <button type="submit">Submit</button>  
 </form>
 </div>
 }

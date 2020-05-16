@@ -1,6 +1,3 @@
-using System.Xml.Xsl.Runtime;
-using System.Text.RegularExpressions;
-using System.ComponentModel;
 using System;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,39 +10,24 @@ namespace squarerootWebApp.Controllers
         {
             return View();
         }
+//No commenting please. I had an abusive relationship with this piece of program so no chitchat.
 
         [HttpPost]
-        public IActionResult Squareroot(string FirstNumber, string SecondNumber)
+        public IActionResult GetSqrt(double FirstNumber, double SecondNumber)
         {
-            double NumberOne = Math.Sqrt(double.Parse(FirstNumber));
-            double NumberTwo = Math.Sqrt(double.Parse(SecondNumber));
-            
+            double firstNumber =  FirstNumber;
+            double secondNumber = SecondNumber;
+
+            double SqrtFirstNumber = Math.Sqrt(FirstNumber);
+            double SqrtSecondNumber = Math.Sqrt(SecondNumber);
+
+            ViewBag.FirstNumber =  FirstNumber;
+            ViewBag.SecondNumber = SecondNumber;                   
+            ViewBag.SqrtFirstNumber = SqrtFirstNumber;
+            ViewBag.SqrtSecondNumber = SqrtSecondNumber;
 
 
-            ViewBag.First =  double.Parse(FirstNumber);
-            ViewBag.Second = double.Parse(SecondNumber);                   
-            //ViewBag.One = NumberOne;
-            //ViewBag.Two = NumberTwo;    
-            
-
-        /*    if (NumberOne < 0)
-            {
-                
-                       
-                            Input positive numbers only.
-            }
-             break;
-
-    
-            if (NumberTwo < 0)
-            {
-               
-                            Input positive numbers only.
-                       
-            }
-            break;
-
-    }*/
+     
 
             return View();
         }
